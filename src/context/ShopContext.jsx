@@ -6,7 +6,7 @@ import { products } from "../assets/assets";
 export const ShopContext = createContext();
 
 const ShopContextProvider = ({ children }) => {
-  const currency = "NRS";
+  const currency = "Rs.";
   
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);

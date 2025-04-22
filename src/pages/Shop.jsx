@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import ProductItem from '../components/ProductItem';
-
+import { ArrowUpDown } from 'lucide-react';
 const Collections = () => {
   const { products, search, showSearch } = useContext(ShopContext);
   const [filterProducts, setFilterProducts] = useState([]);
@@ -60,7 +60,7 @@ const Collections = () => {
     }
   };
 
-  // Debounce logic for search
+
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearch(search);
@@ -85,7 +85,7 @@ const Collections = () => {
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
-      {/* Filter Options */}
+      
       <div className="min-w-60">
         <p
           onClick={() => setShowFilter(!showFilter)}
@@ -152,35 +152,41 @@ const Collections = () => {
         </div>
       </div>
 
-      {/* Right Side */}
-      <div className="flex-1">
-        <div className="flex justify-between text-base sm:text-2xl mb-4">
-          
-          {/* PRODUCT SORT */}
-          <select
-            onChange={(e) => setSortType(e.target.value)}
-            className="border border-gray-300 px-2 text-sm"
-          >
-            <option value="relevant">Sort By: Relevant</option>
-            <option value="low-high">Sort By: Low to High</option>
-            <option value="high-low">Sort By: High to Low</option>
-          </select>
+    
+    <div className="flex-1">
+        <div className="flex justify-between items-center text-base sm:text-2xl mb-4">
+            <h2 className="font-semibold">Products</h2>
+
+            {/* Product Sorting */}
+            <div className="relative">
+                
+                <select
+                    onChange={(e) => setSortType(e.target.value)}
+                    className="border border-gray-300 px-3 py-1 text-sm rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    aria-label="Sort Products"
+                >
+                    <option value="relevant"> Sort By: Relevant</option>
+                    <option value="low-high"> Price (Low to High)</option>
+                    <option value="high-low"> Price (High to Low)</option>
+                </select>
+            </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
-          {filterProducts.map((item, index) => (
-            <ProductItem
-              key={index}
-              id={item._id}
-              name={item.name}
-              price={item.price}
-              image={item.image}
-            />
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 gap-y-6">
+            {filterProducts.map((item, index) => (
+                <ProductItem
+                    key={index}
+                    id={item._id}
+                    name={item.name}
+                    price={item.price}
+                    image={item.image}
+                />
+            ))}
         </div>
-      </div>
     </div>
+      </div>
+
   );
 };
 

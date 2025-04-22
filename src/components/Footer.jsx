@@ -4,6 +4,7 @@ import { Instagram, MapPin, Music, Mail } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="py-8 px-4 md:px-8 lg:px-12 bg-white">
+        <hr className='text-gray-300' />
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start mb-6">
           {/* Left side - Logo and tagline */}

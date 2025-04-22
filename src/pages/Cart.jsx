@@ -40,10 +40,10 @@ const Cart = () => {
           return (
             <div
               key={index}
-              className='grid grid-cols-6 items-center py-4 px-4 border-b'
+              className='grid grid-cols-2 md:grid-cols-6 items-center py-4 px-4 border-b gap-4 md:gap-0'
             >
               {/* Product Image */}
-              <div className='col-span-1'>
+              <div className='col-span-1 flex justify-center md:justify-start'>
                 <img 
                   src={productData.image[0]} 
                   className='w-16 h-16 object-cover' 
@@ -53,16 +53,16 @@ const Cart = () => {
               
               {/* Product Name */}
               <div className='col-span-1'>
-                <p className='text-sm md:text-base'>{productData.name}</p>
+                <p className='text-sm md:text-base text-center md:text-left'>{productData.name}</p>
               </div>
               
               {/* Price */}
-              <div className='col-span-1'>
+              <div className='hidden md:block col-span-1'>
                 <p className='text-sm md:text-base'>Rs. {productData.price.toLocaleString()}</p>
               </div>
               
               {/* Quantity */}
-              <div className='col-span-1'>
+              <div className='col-span-1 flex justify-center md:justify-start'>
                 <input
                   onChange={(e) =>
                     e.target.value === '' || e.target.value === '0'
@@ -77,7 +77,7 @@ const Cart = () => {
               </div>
               
               {/* Subtotal */}
-              <div className='col-span-1'>
+              <div className='hidden md:block col-span-1'>
                 <p className='text-sm md:text-base'>Rs. {(productData.price * item.quantity).toLocaleString()}</p>
               </div>
               

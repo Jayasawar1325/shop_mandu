@@ -5,8 +5,8 @@
   font-family: 'Poppins';
 }
 
-a.active hr{
-  display: block;
+a.active {
+ color:red
 }
 ::-webkit-scrollbar{
   display: none;
