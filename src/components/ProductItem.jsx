@@ -9,7 +9,6 @@ const ProductItem = ({ id, name, image, price }) => {
   const { currency } = useContext(ShopContext)
 
   // Hardcoded review data (as requested)
-  const rating = 4.5
   const reviewCount = 126
 
   return (

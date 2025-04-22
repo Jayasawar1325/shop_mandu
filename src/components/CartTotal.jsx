@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ShopContext } from '../context/ShopContext'
 const CartTotal = () => {
-  const { getCartAmount,navigate } = useContext(ShopContext)
+  const { getCartAmount } = useContext(ShopContext)
   
   return (
     <div className='bg-[#f8f3e0] p-6 rounded'>
